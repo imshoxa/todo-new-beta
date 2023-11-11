@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>To-Do List</h1>
+        <input v-model="newTodo" @keyup.enter="addTodo" placeholder="Add a new task">
+        <ul>
+            <li v-for="(todo, index) in todos" :key="index">
+                {{ todo }}
+                <button @click="removeTodo(index)">Remove</button>
+            </li>
+        </ul>
+
+        <h1>Contacts</h1>
+        <input v-model="newContact" @keyup.enter="addContact" placeholder="Add a new contact">
+        <ul>
+            <li v-for="(contact, index) in contacts" :key="index">
+                {{ contact }}
+                <button @click="removeContact(index)">Remove</button>
+            </li>
+        </ul>
+
+        <h1>Random Quotes</h1>
+        <button @click="generateRandomQuote">Get Random Quote</button>
+        <p>{{ currentQuote }}</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script src="app.js"></script>
+</body>
+</html>
